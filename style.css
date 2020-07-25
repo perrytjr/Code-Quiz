@@ -6,9 +6,13 @@ body {
   height: 100%;
   font-size: 150%;
 }
-header {
-  float: left;
-}
+.time {
+  float: right;
+  clear: right;
+  right:0;
+  
+    }
+
 
 .wrapper {
   padding-top: 30px;
