@@ -6,6 +6,9 @@ body {
   height: 100%;
   font-size: 150%;
 }
+header {
+  float: left;
+}
 
 .wrapper {
   padding-top: 30px;
