@@ -8,9 +8,7 @@ body {
 }
 .time {
   float: right;
-  clear: right;
-  right:0;
-  
+  margin: auto;
     }
 
 
