@@ -20,10 +20,15 @@ body {
 
 section {
   text-align: center;
-  padding: 100px;
+  padding: 50px;
   padding-top: 0px;
   color: hsl(206, 17%, 28%);
 }
+
+form {
+  text-align: center;
+}
+
 p { text-align: center;
 }
 
