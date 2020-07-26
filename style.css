@@ -20,7 +20,7 @@ body {
 
 section {
   text-align: center;
-  padding: 20px;
+  padding: 100px;
   padding-top: 0px;
   color: hsl(206, 17%, 28%);
 }
@@ -43,9 +43,9 @@ p { text-align: center;
     0px;
   color: hsl(0, 0%, 100%);
   display: inline-block;
-  font-size: 22px;
-  line-height: 22px;
-  margin: 16px 16px 16px 20px;
+  font-size: 18px;
+  line-height: 15px;
+  margin: 12px 12px 12px 15px;
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
