@@ -10,7 +10,34 @@ body {
   float: right;
   margin: auto;
     }
-
+  .answer-container { display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font: white;
+}
+  .user-choice {
+    color: white;
+    background-color:purple;
+    justify-content: center;
+    display: auto;
+    border-radius: 25px;
+    line-height: 15px;
+    margin: 12px 12px 5px 5px;
+    padding: 12px 30px;
+  }
+   .answer-option {
+     justify-content: center;
+    background-color: purple;  
+    border-radius: 25px; 
+    display: auto;
+    color: white;
+    padding: .5rem;
+    line-height: 15px;
+    margin: 12px 12px 5px 5px;
+    padding: 12px 30px;
+  
+  }
  .container {
   display: flex;
   justify-content: center;
