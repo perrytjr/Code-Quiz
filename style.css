@@ -32,11 +32,6 @@ form {
 p { text-align: center;
 }
 
-.button {
-  text-align: center;
-  display: inline-block;
-  min-height: 100px;
-}
 
 
 
@@ -54,6 +49,8 @@ p { text-align: center;
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
+  min-height: 50px;
+  
 }
 
 

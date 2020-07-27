@@ -1,7 +1,15 @@
-//timer selector / timer variable seconds left and timer function still needs to be set up 
+//variables
+var startEl = document.getElementById("#startbutton");
 var timeEl = document.querySelector(".time");
-
 var secondsLeft = 75;
+var clearEl = document.querySelector("#clearbutton");
+
+
+
+
+startbutton.addEventListener("click", setTime);
+
+
 
 function setTime() {
   var timerInterval = setInterval(function () {
@@ -16,6 +24,8 @@ function setTime() {
   }, 1000);
 }
 setTime();
+
+
 
 // questions from the GIF that was sent to us and their answers 
 
@@ -56,8 +66,6 @@ setTime();
 
 
 
-//clear button for highscores page 
-var clearEl = document.querySelector("#clearbutton");
 //clear button for highscores page still have to set up score form and connect button to clear scores
 clearEl.addEventListener("click", function (event) {
   event.preventDefault();
