@@ -2,34 +2,35 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>High Scores</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css" />
+
+
 </head>
 
 <body>
-  <div class="wrapper">
+  <div class="container">
     <section id="highscores" class="high">
       <h1>High Scores</h1>
       <p>this will be the highscores page
       </p>
-      <a id=button class="btn" href="index.html">Go Back</a>
-      <button id="clearbutton" class="btn">Clear HighScores</button>
+      <a href="index.html" class="btn btn-lg" role="button">Go Back</a>
+      <button id=clearbutton class="btn">Clear HighScores</button>
       <form>
         <h2>All Done!</h2>
         <p>Your final score is</p>
-        <input placeholder="please enter initials" id="initials" />
-        
-        <button id="submit">Submit</button>
-        <div>
-          
-        </div>
+        <label for="new-score">Enter your initials: </label>
+        <input type="text" id="userName">
+        <button style="background-color:purple;" type="button" class="btn btn-info btn-sm submitBtn">Submit</button>
       </form>
 
     </section>
-
 
   </div>
 

@@ -6,19 +6,27 @@ body {
   height: 100%;
   font-size: 150%;
 }
-.time {
+.timer {
   float: right;
   margin: auto;
     }
 
-
-.wrapper {
+ .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
+  width: 100vw;
+  height: 100vh;
 }
 
 section {
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   padding: 50px;
   padding-top: 0px;
@@ -31,8 +39,6 @@ form {
 
 p { text-align: center;
 }
-
-
 
 
 .btn {
@@ -50,6 +56,7 @@ p { text-align: center;
   text-align: center;
   cursor: pointer;
   min-height: 50px;
+  text-decoration: none;
   
 }
 

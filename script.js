@@ -1,6 +1,6 @@
 //variables
-var startEl = document.getElementById("#startbutton");
-var timeEl = document.querySelector(".time");
+var startEl = document.getElementById("startbutton");
+var timeEl = document.querySelector("time");
 var secondsLeft = 75;
 var clearEl = document.querySelector("#clearbutton");
 
@@ -8,7 +8,6 @@ var clearEl = document.querySelector("#clearbutton");
 
 
 startbutton.addEventListener("click", setTime);
-
 
 
 function setTime() {
