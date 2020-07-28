@@ -6,29 +6,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Code Quiz</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <header>
     <div><a class="scores" href="highscores.html"> View Highscores</a>
-      <div class="timer">Time: <span id="time">0</span></div>
+      <span id="time" class="float-right">Time: 0</span>
     </div>
   </header>
-  <div class="container">
+
+  <div class="container" id="welcome">
     <section>
       <h1>Code Quiz Challenge</h1>
       <p> Try to answer the following code-related questions within the time
         limit. Keep in mind that incorrect answers will
         penalize your score time by ten seconds!
       </p>
-      <a  href="quiz.html"  id="startbutton" class="btn btn-lg" role="button">Start Quiz</a>
+      <button id="startbutton" class="btn btn-lg" role="button">Start Quiz</button>
     </section>
-
-    
   </div>
 
+  <div class="quiz-container" id="quiz">
+    <h2 id="questions"></h2>
+    <ul id="answers">
+      <li class="answerChoice">A</li>
+      <li class="answerChoices">B</li>
+      <li class="answerChoices">C</li>
+      <li class="answerChoices">D</li>
+    </ul>
+    <p class="correct-wrong"></p>
+  </div>
+
+  <div class="container" id="score">
+    <h2>All Done!</h2>
+    <p>Your final score is</p>
+    <label for="new-score">Enter your initials: </label>
+    <input type="text" id="userName">
+    <button style="background-color:purple;" type="button" class="btn btn-info btn-sm submitBtn">Submit</button>
+  </div>
+
+
+
+  <script src="question.js"></script>
   <script src="script.js"></script>
 </body>
 
