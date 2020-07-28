@@ -16,7 +16,7 @@ body {
     align-items: center;
     font: white;
 }
-   li {
+   button {
     color: white;
     background-color:purple;
     justify-content: center;
