@@ -5,7 +5,7 @@ var secondsLeft = (questions.length * 15 + 1)
 var clearEl = document.querySelector("#clearbutton");
 var userChoices = document.getElementById("answers");
 var questionTitle = document.getElementById("questions");
-
+var submit
 var answer;
 var numberofQuestions = -1;
 
@@ -13,12 +13,12 @@ var numberofQuestions = -1;
 startbutton.addEventListener("click", startTime);
 
 //this will hopefully make welcome section dissapear and quiz section take over
-function startTime (){
+function startTime() {
   document.getElementById("welcome").classList.add('d-none');
   document.getElementById("quiz").classList.remove('d-none');
 
   setTime();
-  
+  poolQuestions();
 }
 
 
@@ -29,36 +29,56 @@ function setTime() {
 
     if (secondsLeft === 0 || numberofQuestions === questions.length) {
       clearInterval(timerInterval);
-      setTimeout(userScore, 500);
+      setTimeout(userScore = 500)
     }
 
   }, 1000);
-  poolQuestions();
+  
 }
 
-function poolQuestions () {
-numberofQuestions++; 
+function poolQuestions() {
+  numberofQuestions++;
 
-let answer = questions[numberofQuestions].answers
+  var answer = questions[numberofQuestions].answers;
 
-questionTitle.textContent = questions[numberofQuestions].title;
-userChoices.innerHTML = "";
+  questionTitle.textContent = questions[numberofQuestions].title;
+  userChoices.innerHTML = "";
 
-var choices = questions[numberofQuestions].choices;
+  var choices = questions[numberofQuestions].choices;
 
-for (var i = 0; i < choices.length; i++) {
-  var newChoice = document.createElement("button");
+  for (var i = 0; i < choices.length; i++) {
+    var newChoice = document.createElement("button");
 
-  newChoice.textContent = choices[i]
-  answerBtn = userChoices.appendChild(newChoice).setAttribute("class", "m-1 btn-purple  btn-block float-left");
+    newChoice.textContent = choices[i]
+    answerBtn = userChoices.appendChild(newChoice).setAttribute("class", "m-1 btn-purple  btn-block float-left");
+  }
 }
+
+
+function magicFeedback() {
+  var feedback = document.getElementsByClassName("correct-wrong")[0]
+  feedback.style.display = 'none'
+}
+function showFeedback() {
+  var feedback = document.getElementsByClassName("correct-wrong")[0]
+  feedback.removeAttribute('style');
 }
 
+userChoices.addEventListener("click", function (event) {
+  var feedback = document.getElementsByClassName("correct-wrong")[0]
 
+  if (answer === event.target.textContent) {
+    feedback.innerHTML = "Correct";
+    showFeedback();
 
-
-
-
+  } else {
+    feedback.innerHTML = "Wrong";
+    secondsLeft = secondsLeft - 10;
+    showFeedback();
+    poolQuestions();
+  }
+ 
+});
 
 
 
