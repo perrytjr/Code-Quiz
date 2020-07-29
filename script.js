@@ -8,7 +8,7 @@ var questionTitle = document.getElementById("questions");
 var submit
 var answer;
 var numberofQuestions = -1;
-
+var userscoreEl = document.getElementById("user-score");
 //startbutton.addEventListener("click", setTime); used to control time clock
 startbutton.addEventListener("click", startTime);
 
@@ -33,7 +33,7 @@ function setTime() {
     }
 
   }, 1000);
-  
+
 }
 
 function poolQuestions() {
@@ -75,12 +75,13 @@ userChoices.addEventListener("click", function (event) {
     feedback.innerHTML = "Wrong";
     secondsLeft = secondsLeft - 10;
     showFeedback();
-    poolQuestions();
+    
   }
- 
+  poolQuestions();
 });
 
-
-
-
-//clear button for highscores page still have to set up score form and connect button to clear scores
+function Score() {
+  document.getElementById("quiz").classList.add('d-none');
+  document.getElementById("score").classList.remove('d-none');
+  userscoreEl.textContent = "Your score is " + secondsLeft + ("")
+}
