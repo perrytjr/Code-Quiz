@@ -1,7 +1,7 @@
 //variables
 var startEl = document.getElementById("startbutton");
 var timeEl = document.getElementById("time");
-var secondsLeft = (questions.length * 15);
+var secondsLeft = questions.length * 15;
 var clearEl = document.querySelector("#clearbutton");
 var userChoices = document.getElementById("answers");
 var questionTitle = document.getElementById("questions");
@@ -9,6 +9,7 @@ var submitBtn = document.querySelector("button.submitBtn");
 var answer;
 var numberofQuestions = -1;
 var userscoreEl = document.getElementById("user-score");
+var userInitEl = document.getElementById('userName');
 //startbutton.addEventListener("click", setTime); used to control time clock
 startbutton.addEventListener("click", startTime);
 
@@ -50,7 +51,7 @@ function poolQuestions() {
     var newChoice = document.createElement("button");
 
     newChoice.textContent = choices[i]
-    answerBtn = userChoices.appendChild(newChoice).setAttribute("class", "m-1 btn-purple  btn-block float-left");
+    answerBtn = userChoices.appendChild(newChoice).setAttribute("class", "btn-purple btn-md float-left");
   }
 }
 
@@ -82,46 +83,33 @@ userChoices.addEventListener("click", function (event) {
   poolQuestions();
 });
 
-function Score() {
-  document.getElementById("quiz").classList.add('d-none');
-  document.getElementById("score").classList.remove('d-none');
-  userscoreEl.textContent = "Your score is " + secondsLeft + ("")
+
+function saveScores() {
+
+  let userInit = userInitEl.value.trim();
+
+  if (userInit !== '') {
+
+    let userScores = JSON.parse(window.localStorage.getItem('user-scores')) || [];
+
+    let nextScore = {
+      score: time,
+      userInit: userInit
+    }
+
+    userScores.push(nextScore);
+    window.localStorage.setItem('user-scores', JSON.stringify(userScores));
+
+    window.location.href = "scores.html";
+  }
 }
 
-submitBtn.addEventListener("click", function (event) {
-  event.stopPropagation();
-  addScore();
-  window.location.href = 'highscores.html'
-});
+function checkInput(event) {
 
-function addScore() {
-  userNameInput = document.getElementById("userName").nodeValue
-  var newScore = {
-    name: userNameInput,
-    score: secondsLeft
-  };
-
-  var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
-  highScores.push(newScore)
-  localStorage.setItem("highScores", JSON.stringify(highScores));
-
+  if (event.key === 'Enter') {
+    saveScores();
+  }
 }
-
-var clearBtn = document.querySelector("#clearbutton"),
-  highScores = JSON.parse(localStorage.getItem("highScores") || "[]"),
-  scoreList = document.getElementById("score-list");
-
-highScores.sort(function (a, b) {
-  return b.score - a.score
-})
-
-for (var s = 0; s < highScores.length; s++) {
-  var newLI = document.createElement("li")
-  newLI.textContent = highScores[s].name + " - " + highScores[s].score
-  scoreList.appendChild(newLI);
-}
-
-clearBtn.addEventListener("click", function () {
+clearbutton.addEventListener("click", function () {
   localStorage.clear();
-  history.back()
 });

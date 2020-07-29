@@ -10,7 +10,8 @@ body {
   float: right;
   margin-right: auto;
     }
-  .quiz-container { display: flex;
+  .quiz-container { display: inline-block;
+    margin-top: 50px;
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -18,15 +19,17 @@ body {
 }
    button {
     color: white;
-    background-color:purple;
+    background-color: purple;
     justify-content: center;
     display: flex;
-    border-radius: 25px;
-    line-height: 15px;
-    margin: 12px 12px 5px 5px;
-    padding: 12px 30px;
+    border-radius: 5;
+    margin: 5px;
+    padding: 3px 8px;
   }
   
+  .hide {
+    display: none;
+  }
   
  .container {
   display: flex;
@@ -68,8 +71,8 @@ p { text-align: center;
   display: inline-block;
   font-size: 18px;
   line-height: 15px;
-  margin: 12px 12px 12px 15px;
-  padding: 14px 34px;
+  margin: 15px;
+  padding: 3px 8px;
   text-align: center;
   cursor: pointer;
   min-height: 50px;

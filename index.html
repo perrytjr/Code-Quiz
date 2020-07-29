@@ -25,7 +25,7 @@
         limit. Keep in mind that incorrect answers will
         penalize your score time by ten seconds!
       </p>
-      <button id="startbutton" class="btn btn-lg" role="button">Start Quiz</button>
+      <button id="startbutton" class="btn btn-md" role="button">Start Quiz</button>
     </section>
   </div>
 
@@ -36,11 +36,10 @@
     <p class="correct-wrong"></p>
   </div>
 
-  <div class="form-container" id="score">
+  <div class="hide" id="score">
     <h2>All Done!</h2>
-    <p id= "user-score"></p>
-    <label for="new-score">Enter your initials: </label>
-    <input type="text" id="userName">
+    <p> Quiz session is over!<span id= "user-score"></span></p>
+  <p>Enter your intials to save your score:<input type="text" id="userName"></p>
     <button style="background-color:purple;" type="button" class="btn btn-info btn-sm submitBtn">Submit</button>
   </div>
 

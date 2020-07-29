@@ -1,4 +1,4 @@
-let questions = [
+var questions = [
     {
       title: "Commonly used data types do not include?",
       choices: ["string","boolean", "alerts",  "number"],
