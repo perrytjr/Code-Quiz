@@ -1,23 +1,26 @@
 //variables
 var startEl = document.getElementById("startbutton");
 var timeEl = document.getElementById("time");
-var secondsLeft = questions.length * 15;
+var secondsLeft = (questions.length * 15)
 var clearEl = document.querySelector("#clearbutton");
 var userChoices = document.getElementById("answers");
-var questionTitle = document.getElementById("questions");
+//var questionTitle = document.getElementById("questions");
+var questionSection = document.getElementById("quiz");
 var submitBtn = document.querySelector("button.submitBtn");
 var answer;
-var numberofQuestions = -1;
+var numberofQuestions = 0;
 var userscoreEl = document.getElementById("user-score");
 var userInitEl = document.getElementById('userName');
-//startbutton.addEventListener("click", setTime); used to control time clock
+var outputElement = document.getElementById("correct-wrong");
+
 startbutton.addEventListener("click", startTime);
 
 //this will hopefully make welcome section dissapear and quiz section take over
 function startTime() {
-  document.getElementById("welcome").classList.add('d-none');
-  document.getElementById("quiz").classList.remove('d-none');
 
+  const beginQuiz = document.getElementById('welcome')
+  beginQuiz.setAttribute('class', 'hide');
+  questionSection.removeAttribute('class');
   setTime();
   poolQuestions();
 }
@@ -38,51 +41,73 @@ function setTime() {
 }
 
 function poolQuestions() {
+
+
+  let currentQuestion = questions[numberofQuestions];
+
+  let questionMain = document.getElementById('questions');
+  questionMain.textContent = currentQuestion.title;
+  
+  userChoices.innerHTML = '';
+
+  currentQuestion.choices.forEach(function (choice, i) {
+
+    let choiceNode = document.createElement('button');
+    choiceNode.setAttribute('class', 'choice');
+    choiceNode.setAttribute('value', choice);
+
+    choiceNode.textContent = i + 1 + '. ' + choice;
+
+    choiceNode.onclick = answerClick;
+
+    userChoices.appendChild(choiceNode);
+
+  });
+}
+
+function answerClick() {
+
+  if (this.value !== questions[numberofQuestions].answer) {
+
+    secondsLeft -= 10;
+
+    if (secondsLeft < 0) {
+      secondsLeft = 0;
+    }
+
+    timeEl.textContent = time;
+
+    outputElement.textContent = 'Incorrect!';
+  } else {
+
+    outputElement.textContent = 'Correct!';
+  }
+
+  outputElement.setAttribute('class', 'correct-wrong');
+  setTimeout(function () {
+    outputElement.setAttribute('classs', 'output hide');
+  }, 1000);
+
   numberofQuestions++;
 
-  answer = questions[numberofQuestions]
-
-  questionTitle.textContent = questions[numberofQuestions].title
-  userChoices.innerHTML = "";
-
-  var choices = questions[numberofQuestions].choices;
-
-  for (var i = 0; i < choices.length; i++) {
-    var newChoice = document.createElement("button");
-
-    newChoice.textContent = choices[i]
-    answerBtn = userChoices.appendChild(newChoice).setAttribute("class", "btn-purple btn-md float-left");
-  }
-}
-
-
-function magicFeedback() {
-  var feedback = document.getElementsByClassName("correct-wrong")[0]
-  feedback.style.display = 'none'
-}
-function showFeedback() {
-  var feedback = document.getElementsByClassName("correct-wrong")[0]
-  feedback.removeAttribute('style');
-}
-
-userChoices.addEventListener("click", function (event) {
-  var feedback = document.getElementsByClassName("correct-wrong")[0]
-
-  if (answer === event.target.textContent) {
-    feedback.innerHTML = "Correct";
-    setTimeout(magicFeedback, 1000);
-    showFeedback();
-
+  if (numberofQuestions === questions.length) {
+    quizUp();
   } else {
-    feedback.innerHTML = "Wrong";
-    setTimeout(magicFeedback, 1000);
-    secondsLeft = secondsLeft - 10;
-    showFeedback();
-
+    poolQuestions();
   }
-  poolQuestions();
-});
+}
 
+function quizUp() {
+
+  let allDone = document.getElementById('score');
+  allDone.removeAttribute('class');
+
+  let userscoreEl = document.getElementById('userName');
+  userscoreEl.textContent = secondsLeft;
+
+  questionSection.setAttribute('class', 'hide');
+
+}
 
 function saveScores() {
 
@@ -99,8 +124,8 @@ function saveScores() {
 
     userScores.push(nextScore);
     window.localStorage.setItem('user-scores', JSON.stringify(userScores));
-
-    window.location.href = "scores.html";
+    console.log("userScores")
+    window.location.href = "highscores.html";
   }
 }
 
@@ -110,6 +135,5 @@ function checkInput(event) {
     saveScores();
   }
 }
-clearbutton.addEventListener("click", function () {
-  localStorage.clear();
-});
+submitBtn.onclick = saveScores;
+userInitEl.onkeyup = checkInput;

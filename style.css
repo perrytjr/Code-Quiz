@@ -10,7 +10,16 @@ body {
   float: right;
   margin-right: auto;
     }
-  .quiz-container { display: inline-block;
+
+    .output {
+      font-style: Georgia, 'Times New Roman', Times, serif;
+      font-size: 100%;
+      margin-top: 20px;
+      padding-top: 10px;
+      color: white;
+      border-top: 2px solid red;
+    }
+  #quiz { display: inline-block;
     margin-top: 50px;
     width: 100%;
     justify-content: center;
