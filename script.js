@@ -1,10 +1,10 @@
 //variables
 var startEl = document.getElementById("startbutton");
 var timeEl = document.getElementById("time");
-var secondsLeft = (questions.length * 15)
+var secondsLeft = (questions.length * 15);
 var clearEl = document.querySelector("#clearbutton");
 var userChoices = document.getElementById("answers");
-//var questionTitle = document.getElementById("questions");
+var questionTitle = document.getElementById("questions");
 var questionSection = document.getElementById("quiz");
 var submitBtn = document.querySelector("button.submitBtn");
 var answer;
@@ -45,7 +45,7 @@ function poolQuestions() {
 
   let currentQuestion = questions[numberofQuestions];
 
-  let questionMain = document.getElementById('questions');
+  let questionMain = document.getElementById("questions");
   questionMain.textContent = currentQuestion.title;
   
   userChoices.innerHTML = '';
@@ -102,7 +102,7 @@ function quizUp() {
   let allDone = document.getElementById('score');
   allDone.removeAttribute('class');
 
-  let userscoreEl = document.getElementById('userName');
+  let userscoreEl = document.getElementById('user-score');
   userscoreEl.textContent = secondsLeft;
 
   questionSection.setAttribute('class', 'hide');
@@ -115,16 +115,17 @@ function saveScores() {
 
   if (userInit !== '') {
 
-    let userScores = JSON.parse(window.localStorage.getItem('user-scores')) || [];
+    var highscores =
+      JSON.parse(window.localStorage.getItem("highscores")) || [];
 
-    let nextScore = {
-      score: time,
+    var nextScore = {
+      score: secondsLeft,
       userInit: userInit
     }
 
-    userScores.push(nextScore);
-    window.localStorage.setItem('user-scores', JSON.stringify(userScores));
-    console.log("userScores")
+    highscores.push(nextScore);
+    window.localStorage.setItem("highscores", JSON.stringify(highscores));
+   
     window.location.href = "highscores.html";
   }
 }
