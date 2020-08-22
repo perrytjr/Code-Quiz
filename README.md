@@ -6,8 +6,7 @@ I created an application that generates a random password based on user-selected
 
 ![](https://github.com/perrytjr/Code-Quiz/blob/master/assets/Screen%20Shot%202020-07-28%20at%206.33.51%20PM.png)
 
-
-
+![](https://github.com/perrytjr/Code-Quiz/blob/master/assets/Screen%20Shot%202020-08-22%20at%2010.00.06%20AM.png)
 ## How it functions
 
 Try to answer the following code-related questions within the time
