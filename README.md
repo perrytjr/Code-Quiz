@@ -2,7 +2,7 @@
 
 
 ## Overview 
-I created an application that generates a random password based on user-selected criteria. This app will run in the browser using HTML, CSS, powered by JavaScript. 
+I created a Coding Quiz that is timed and scored. How fast the user completes the quiz will determin the users score. This app will run in the browser using HTML, CSS, powered by JavaScript. 
 
 ![](https://github.com/perrytjr/Code-Quiz/blob/master/assets/Screen%20Shot%202020-07-28%20at%206.33.51%20PM.png)
 
